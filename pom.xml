@@ -11,13 +11,13 @@
 
     <properties>
 		<jdk.version>1.6</jdk.version>
-		<spring.version>4.0.0.RELEASE</spring.version>
+		<spring.version>4.2.0.RELEASE</spring.version>
 		<spring.security.version>4.2.0.RELEASE</spring.security.version>
 		<jstl.version>1.2</jstl.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
 		<logback.version>1.1.2</logback.version>
 		<slf4j.version>1.7.6</slf4j.version>
-		<hibernate.version>4.2.11.Final</hibernate.version>
+		<hibernate.version>4.3.6.Final</hibernate.version>
 		<dbcp.version>1.4</dbcp.version>
 		<servletapi.version>2.5</servletapi.version>
 	</properties>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<version>4.0.0.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -146,15 +146,9 @@
 			<scope>provided</scope>
 		</dependency>
 	 <dependency>
-	  <groupId>org.hibernate</groupId>
-	  <artifactId>hibernate-entitymanager</artifactId>
-	  <version>4.3.1.Final</version>
-	 </dependency>
-	 <dependency>
-	  <groupId>unknown.binary</groupId>
-	  <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
-	  <version>SNAPSHOT</version>
-	  <scope>provided</scope>
+	  <groupId>org.primefaces</groupId>
+	  <artifactId>primefaces</artifactId>
+	  <version>5.0</version>
 	 </dependency>
 	</dependencies>
 
@@ -187,9 +181,10 @@
 	</build>
  <repositories>
   <repository>
-   <id>unknown-jars-temp-repo</id>
-   <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-   <url>file:${project.basedir}/lib</url>
+   <url>http://repository.primefaces.org/</url>
+   <id>PrimeFaces-maven-lib</id>
+   <layout>default</layout>
+   <name>Repository for library PrimeFaces-maven-lib</name>
   </repository>
  </repositories>
 </project>

@@ -1,5 +1,6 @@
 package com.mycompany.users.model;
 
+import java.io.Serializable;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "user_roles", catalog = "test", uniqueConstraints = @UniqueConstraint(columnNames = { "role", "username" }))
-public class UserRole{
+public class UserRole implements Serializable{
 
 	private Integer userRoleId;
 	private User user;

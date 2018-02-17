@@ -1,22 +1,22 @@
 package com.mycompany.users.model;
 
-import java.util.HashSet;
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "company")
-public class Employee {
+@Table(name = "employee")
+public class Employee implements Serializable {
 
 	private String Name;
-	private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
+        private Company company;
+        
 	public Employee() {
 	}
 
@@ -26,7 +26,6 @@ public class Employee {
 
 	public Employee(String username, String password, boolean enabled, Set<UserRole> userRole) {
 		this.Name = username;
-		this.userRole = userRole;
 	}
 
 	@Id
@@ -39,14 +38,13 @@ public class Employee {
 		this.Name = username;
 	}
 
+        @ManyToOne
+        public Company getCompany() {
+            return company;
+        }
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<UserRole> getUserRole() {
-		return this.userRole;
-	}
-
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
-	}
+        public void setCompany(Company company) {
+            this.company = company;
+        }
 
 }

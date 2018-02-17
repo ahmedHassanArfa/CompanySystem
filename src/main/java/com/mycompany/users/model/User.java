@@ -1,5 +1,6 @@
 package com.mycompany.users.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users", catalog = "test")
-public class User {
+public class User implements Serializable {
 
 	private String username;
 	private String password;
